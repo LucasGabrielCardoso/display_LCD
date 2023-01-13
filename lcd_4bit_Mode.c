@@ -54,7 +54,7 @@
 
 //Display internal delay times
 #define Delay_us(time)              do{for(uint16_t i = 0; i < time; i++)\
-                                        __delay_us(1);}while(0)
+                                        __delay_us(6);}while(0)
 
 #define Delay_ms(time)              do{for(uint16_t i = 0; i < time; i++)\
                                         __delay_ms(1);}while(0)
