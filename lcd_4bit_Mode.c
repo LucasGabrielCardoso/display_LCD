@@ -8,7 +8,7 @@
 #include "lcd_4bit_Mode.h"
 #include "system_config.h"
 #include "device_config.h"
-#include "delay.h"
+//#include "delay.h"
 
 /******************************************************************************/
 /*                             Display Defines                                */
@@ -47,12 +47,17 @@
                                          //therefore, always put a Delay_ms(2) after instruction
 
 //Set the level in the display Port
-#define mBitSet(port_bit, value)    port_bit    =   value
+#define LCDSetPort(instruction)     do{D7 = (0x80==(instruction&0x80));\
+                                       D6 = (0x40==(instruction&0x40));\
+                                       D5 = (0x20==(instruction&0x20));\
+                                       D4 = (0x10==(instruction&0x10));}while(0)
 
-#define LCDSetPort(instruction)     do{mBitSet(D7, (0x80==(instruction&0x80)));\
-                                       mBitSet(D6, (0x40==(instruction&0x40)));\
-                                       mBitSet(D5, (0x20==(instruction&0x20)));\
-                                       mBitSet(D4, (0x10==(instruction&0x10)));}while(0)
+//Display internal delay times
+#define Delay_us(time)              do{for(uint16_t i = 0; i < time; i++)\
+                                        __delay_us(1);}while(0)
+
+#define Delay_ms(time)              do{for(uint16_t i = 0; i < time; i++)\
+                                        __delay_ms(1);}while(0)
 
 /******************************************************************************/
 /*                        Display Ports Definitions                           */
@@ -76,30 +81,30 @@
 
 void LCD_Set_Port(unsigned char instruction)
 {
-    mBitSet(D7, (0x80==(instruction&0x80)));
-    mBitSet(D6, (0x40==(instruction&0x40)));
-    mBitSet(D5, (0x20==(instruction&0x20)));
-    mBitSet(D4, (0x10==(instruction&0x10)));
+    D7 = (0x80==(instruction&0x80));
+    D6 = (0x40==(instruction&0x40));
+    D5 = (0x20==(instruction&0x20));
+    D4 = (0x10==(instruction&0x10));
 }
 
 void LCD_Instruction(unsigned char instruction)
 {
-    mBitSet(RS, 0);
-    mBitSet(EN,1);
+    RS = 0;
+    EN = 1;
    
     LCDSetPort(instruction);
     
     Delay_us(1);
-    mBitSet(EN,0);
+    EN = 0;
     Delay_us(1);
     
-    mBitSet(EN,1);
+    EN = 1;
     
     instruction <<= 4;
     LCDSetPort(instruction);
     
     Delay_us(1);
-    mBitSet(EN,0);
+    EN = 0;
     Delay_us(45);
 }
 
@@ -139,43 +144,43 @@ void LCD_Return_Home(void)
 
 void putch(char data)
 {
-    mBitSet(RS, 1);   
-    mBitSet(EN,1);
+    RS = 1;   
+    EN = 1;
     
     LCDSetPort(data);
 
     Delay_us(1);
-    mBitSet(EN,0);
+    EN = 0;
     Delay_us(1);
 
-    mBitSet(EN,1);
+    EN = 1;
     
     data <<= 4;
     LCDSetPort(data);
     
     Delay_us(1);
-    mBitSet(EN,0);
+    EN = 0;
     Delay_us(45);      
 }
 
 void LCD_Write_Char(char data)
 {
-    mBitSet(RS, 1);   
-    mBitSet(EN,1);
+    RS = 1;   
+    EN = 1;
     
     LCDSetPort(data);
 
     Delay_us(1);
-    mBitSet(EN,0);
+    EN = 0;
     Delay_us(1);
 
-    mBitSet(EN,1);
+    EN = 1;
     
     data <<= 4;
     LCDSetPort(data);
     
     Delay_us(1);
-    mBitSet(EN,0);
+    EN = 0;
     Delay_us(45);      
 }
 
@@ -225,34 +230,34 @@ void LCD_Set_Latin_Char(void)
 void LCD_Initializer()
 {    
     Delay_ms(40);
-    mBitSet(RS, 0);
+    RS = 0;
     
-    mBitSet(EN,1);
+    EN = 1;
     LCDSetPort(DATA_8_BIT_MODE);
     Delay_us(1);
-    mBitSet(EN,0);
+    EN = 0;
     Delay_us(1);
     
     Delay_ms(5);
     
-    mBitSet(EN,1);
+    EN = 1;
     LCDSetPort(DATA_8_BIT_MODE);
     Delay_us(1);
-    mBitSet(EN,0);
+    EN = 0;
     Delay_us(1);
     
     Delay_us(500);
     
-    mBitSet(EN,1);
+    EN = 1;
     LCDSetPort(DATA_8_BIT_MODE);
     Delay_us(1);
-    mBitSet(EN,0);
+    EN = 0;
     Delay_us(1); 
 
-    mBitSet(EN,1);    
+    EN = 1;    
     LCDSetPort(DATA_4_BIT_MODE);
     Delay_us(1);
-    mBitSet(EN,0);
+    EN = 0;
     Delay_us(1);        
     
     LCD_Instruction(DATA_4_BIT_MODE|TWO_LINE_DISPLAY);
