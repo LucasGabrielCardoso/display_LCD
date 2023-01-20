@@ -8,7 +8,6 @@
 #include "lcd_4bit_Mode.h"
 #include "system_config.h"
 #include "device_config.h"
-//#include "delay.h"
 
 /******************************************************************************/
 /*                             Display Defines                                */
@@ -52,13 +51,6 @@
                                        D5 = (0x20==(instruction&0x20));\
                                        D4 = (0x10==(instruction&0x10));}while(0)
 
-//Display internal delay times
-#define Delay_us(time)              do{for(uint16_t i = 0; i < time; i++)\
-                                        __delay_us(6);}while(0)
-
-#define Delay_ms(time)              do{for(uint16_t i = 0; i < time; i++)\
-                                        __delay_ms(1);}while(0)
-
 /******************************************************************************/
 /*                        Display Ports Definitions                           */
 /******************************************************************************/
@@ -94,18 +86,16 @@ void LCD_Instruction(unsigned char instruction)
    
     LCDSetPort(instruction);
     
-    Delay_us(1);
     EN = 0;
-    Delay_us(1);
+    __delay_us(45);
     
     EN = 1;
     
     instruction <<= 4;
     LCDSetPort(instruction);
     
-    Delay_us(1);
     EN = 0;
-    Delay_us(45);
+    __delay_us(45);
 }
 
 void LCD_Move_Cursor(unsigned char line, unsigned char column)
@@ -133,13 +123,13 @@ void LCD_Move_Cursor(unsigned char line, unsigned char column)
 void LCD_Clear_Display(void)
 {
     LCD_Instruction(CLEAR_DISPLAY);
-    Delay_ms(2);    
+    __delay_ms(2);    
 }
 
 void LCD_Return_Home(void)
 {
     LCD_Instruction(RETURN_HOME);
-    Delay_ms(2);    
+    __delay_ms(2);    
 }
 
 void putch(char data)
@@ -149,39 +139,31 @@ void putch(char data)
     
     LCDSetPort(data);
 
-    Delay_us(1);
     EN = 0;
-    Delay_us(1);
+    __delay_us(45);
 
     EN = 1;
     
     data <<= 4;
     LCDSetPort(data);
     
-    Delay_us(1);
     EN = 0;
-    Delay_us(45);      
+    __delay_us(45);      
 }
 
 void LCD_Write_Char(char data)
 {
     RS = 1;   
     EN = 1;
-    
     LCDSetPort(data);
-
-    Delay_us(1);
     EN = 0;
-    Delay_us(1);
+    __delay_us(45);
 
     EN = 1;
-    
     data <<= 4;
     LCDSetPort(data);
-    
-    Delay_us(1);
     EN = 0;
-    Delay_us(45);      
+    __delay_us(45);      
 }
 
 void LCD_Set_New_Simbol(unsigned char *simbol, unsigned char simbol_address)
@@ -229,40 +211,36 @@ void LCD_Set_Latin_Char(void)
 
 void LCD_Initializer()
 {    
-    Delay_ms(40);
+    __delay_ms(40);
     RS = 0;
     
     EN = 1;
     LCDSetPort(DATA_8_BIT_MODE);
-    Delay_us(1);
     EN = 0;
-    Delay_us(1);
+    __delay_us(45);
     
-    Delay_ms(5);
+    __delay_ms(5);
     
     EN = 1;
     LCDSetPort(DATA_8_BIT_MODE);
-    Delay_us(1);
     EN = 0;
-    Delay_us(1);
+    __delay_us(45);
     
-    Delay_us(500);
+    __delay_us(500);
     
     EN = 1;
     LCDSetPort(DATA_8_BIT_MODE);
-    Delay_us(1);
     EN = 0;
-    Delay_us(1); 
+    __delay_us(45); 
 
     EN = 1;    
     LCDSetPort(DATA_4_BIT_MODE);
-    Delay_us(1);
     EN = 0;
-    Delay_us(1);        
+    __delay_us(45);        
     
     LCD_Instruction(DATA_4_BIT_MODE|TWO_LINE_DISPLAY);
     LCD_Instruction(DISPLAY_ON);
     LCD_Instruction(CLEAR_DISPLAY);
-    Delay_ms(2);
+    __delay_ms(2);
     LCD_Instruction(MOVE_FOWARD);
 }
