@@ -1,0 +1,194 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"47 ./lcd_4bit_Mode.h
+[; ;./lcd_4bit_Mode.h: 47:     void LCD_Clear_Display(void);
+[v _LCD_Clear_Display `(v ~T0 @X0 0 ef ]
+"105 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h: 105: int printf(const char *restrict, ...);
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"44 ./lcd_4bit_Mode.h
+[; ;./lcd_4bit_Mode.h: 44:     void LCD_Move_Cursor(unsigned char line, unsigned char column);
+[v _LCD_Move_Cursor `(v ~T0 @X0 0 ef2`uc`uc ]
+"42
+[; ;./lcd_4bit_Mode.h: 42:     void putch(char data);
+[v _putch `(v ~T0 @X0 0 ef1`uc ]
+"11 screen.c
+[; ;screen.c: 11: void Tela_Menu(void)
+[v _Tela_Menu `(v ~T0 @X0 1 ef ]
+"12
+[; ;screen.c: 12: {
+{
+[e :U _Tela_Menu ]
+[f ]
+"13
+[; ;screen.c: 13:     LCD_Clear_Display();
+[e ( _LCD_Clear_Display ..  ]
+"14
+[; ;screen.c: 14:     printf("  op  o 1        ");
+[e ( _printf :s 1C ]
+"15
+[; ;screen.c: 15:     LCD_Move_Cursor(1,5);
+[e ( _LCD_Move_Cursor (2 , -> -> 1 `i `uc -> -> 5 `i `uc ]
+"16
+[; ;screen.c: 16:     putch(0);
+[e ( _putch (1 -> -> 0 `i `uc ]
+"17
+[; ;screen.c: 17:     LCD_Move_Cursor(1,6);
+[e ( _LCD_Move_Cursor (2 , -> -> 1 `i `uc -> -> 6 `i `uc ]
+"18
+[; ;screen.c: 18:     putch(1);
+[e ( _putch (1 -> -> 1 `i `uc ]
+"20
+[; ;screen.c: 20:     LCD_Move_Cursor(2,1);
+[e ( _LCD_Move_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"21
+[; ;screen.c: 21:     printf("  op  o 2        ");
+[e ( _printf :s 2C ]
+"22
+[; ;screen.c: 22:     LCD_Move_Cursor(2,5);
+[e ( _LCD_Move_Cursor (2 , -> -> 2 `i `uc -> -> 5 `i `uc ]
+"23
+[; ;screen.c: 23:     putch(0);
+[e ( _putch (1 -> -> 0 `i `uc ]
+"24
+[; ;screen.c: 24:     LCD_Move_Cursor(2,6);
+[e ( _LCD_Move_Cursor (2 , -> -> 2 `i `uc -> -> 6 `i `uc ]
+"25
+[; ;screen.c: 25:     putch(1);
+[e ( _putch (1 -> -> 1 `i `uc ]
+"26
+[; ;screen.c: 26: }
+[e :UE 3 ]
+}
+"28
+[; ;screen.c: 28: void Tela_Option_1(void)
+[v _Tela_Option_1 `(v ~T0 @X0 1 ef ]
+"29
+[; ;screen.c: 29: {
+{
+[e :U _Tela_Option_1 ]
+[f ]
+"30
+[; ;screen.c: 30:     LCD_Clear_Display();
+[e ( _LCD_Clear_Display ..  ]
+"31
+[; ;screen.c: 31:     printf("op  o 1");
+[e ( _printf :s 3C ]
+"32
+[; ;screen.c: 32:     LCD_Move_Cursor(1,3);
+[e ( _LCD_Move_Cursor (2 , -> -> 1 `i `uc -> -> 3 `i `uc ]
+"33
+[; ;screen.c: 33:     putch(0);
+[e ( _putch (1 -> -> 0 `i `uc ]
+"34
+[; ;screen.c: 34:     LCD_Move_Cursor(1,4);
+[e ( _LCD_Move_Cursor (2 , -> -> 1 `i `uc -> -> 4 `i `uc ]
+"35
+[; ;screen.c: 35:     putch(1);
+[e ( _putch (1 -> -> 1 `i `uc ]
+"37
+[; ;screen.c: 37:     LCD_Move_Cursor(2,1);
+[e ( _LCD_Move_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"38
+[; ;screen.c: 38:     printf("voltar<<press B2");
+[e ( _printf :s 4C ]
+"39
+[; ;screen.c: 39: }
+[e :UE 4 ]
+}
+"41
+[; ;screen.c: 41: void Tela_Option_2(void)
+[v _Tela_Option_2 `(v ~T0 @X0 1 ef ]
+"42
+[; ;screen.c: 42: {
+{
+[e :U _Tela_Option_2 ]
+[f ]
+"43
+[; ;screen.c: 43:     LCD_Clear_Display();
+[e ( _LCD_Clear_Display ..  ]
+"44
+[; ;screen.c: 44:     printf("op  o 2");
+[e ( _printf :s 5C ]
+"45
+[; ;screen.c: 45:     LCD_Move_Cursor(1,3);
+[e ( _LCD_Move_Cursor (2 , -> -> 1 `i `uc -> -> 3 `i `uc ]
+"46
+[; ;screen.c: 46:     putch(0);
+[e ( _putch (1 -> -> 0 `i `uc ]
+"47
+[; ;screen.c: 47:     LCD_Move_Cursor(1,4);
+[e ( _LCD_Move_Cursor (2 , -> -> 1 `i `uc -> -> 4 `i `uc ]
+"48
+[; ;screen.c: 48:     putch(1);
+[e ( _putch (1 -> -> 1 `i `uc ]
+"50
+[; ;screen.c: 50:     LCD_Move_Cursor(2,1);
+[e ( _LCD_Move_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"51
+[; ;screen.c: 51:     printf("voltar<<press B2");
+[e ( _printf :s 6C ]
+"52
+[; ;screen.c: 52: }
+[e :UE 5 ]
+}
+"54
+[; ;screen.c: 54: void Cursor_Select(unsigned char line)
+[v _Cursor_Select `(v ~T0 @X0 1 ef1`uc ]
+"55
+[; ;screen.c: 55: {
+{
+[e :U _Cursor_Select ]
+"54
+[; ;screen.c: 54: void Cursor_Select(unsigned char line)
+[v _line `uc ~T0 @X0 1 r1 ]
+"55
+[; ;screen.c: 55: {
+[f ]
+"56
+[; ;screen.c: 56:     static unsigned char state = 2;
+[v F349 `uc ~T0 @X0 1 s state ]
+[i F349
+-> -> 2 `i `uc
+]
+"58
+[; ;screen.c: 58:     LCD_Move_Cursor(state,1);
+[e ( _LCD_Move_Cursor (2 , F349 -> -> 1 `i `uc ]
+"59
+[; ;screen.c: 59:     printf(" ");
+[e ( _printf :s 7C ]
+"60
+[; ;screen.c: 60:     LCD_Move_Cursor(state,11);
+[e ( _LCD_Move_Cursor (2 , F349 -> -> 11 `i `uc ]
+"61
+[; ;screen.c: 61:     printf("       ");
+[e ( _printf :s 8C ]
+"63
+[; ;screen.c: 63:     LCD_Move_Cursor(line,1);
+[e ( _LCD_Move_Cursor (2 , _line -> -> 1 `i `uc ]
+"64
+[; ;screen.c: 64:     printf(">");
+[e ( _printf :s 9C ]
+"65
+[; ;screen.c: 65:     LCD_Move_Cursor(line,11);
+[e ( _LCD_Move_Cursor (2 , _line -> -> 11 `i `uc ]
+"66
+[; ;screen.c: 66:     printf("[ENTER]");
+[e ( _printf :s 10C ]
+"68
+[; ;screen.c: 68:     state = line;
+[e = F349 _line ]
+"69
+[; ;screen.c: 69: }
+[e :UE 6 ]
+}
+[p f _printf 8388608 ]
+[a 10C 91 69 78 84 69 82 93 0 ]
+[a 9C 62 0 ]
+[a 4C 118 111 108 116 97 114 60 60 112 114 101 115 115 32 66 50 0 ]
+[a 6C 118 111 108 116 97 114 60 60 112 114 101 115 115 32 66 50 0 ]
+[a 5C 111 112 32 32 111 32 50 0 ]
+[a 3C 111 112 32 32 111 32 49 0 ]
+[a 2C 32 32 111 112 32 32 111 32 50 32 32 32 32 32 32 32 32 0 ]
+[a 1C 32 32 111 112 32 32 111 32 49 32 32 32 32 32 32 32 32 0 ]
+[a 8C 32 32 32 32 32 32 32 0 ]
+[a 7C 32 0 ]

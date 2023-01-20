@@ -1,0 +1,348 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F452 ]
+[d frameptr 4065 ]
+"1007 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
+"1520
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\printf.c
+[v _printf printf `(i  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"82 C:\Users\LucasGabriel\Desktop\Desafio2_LCD.X\lcd_4bit_Mode.c
+[v _LCD_Instruction LCD_Instruction `(v  1 e 1 0 ]
+"101
+[v _LCD_Move_Cursor LCD_Move_Cursor `(v  1 e 1 0 ]
+"123
+[v _LCD_Clear_Display LCD_Clear_Display `(v  1 e 1 0 ]
+"135
+[v _putch putch `(v  1 e 1 0 ]
+"169
+[v _LCD_Set_New_Simbol LCD_Set_New_Simbol `(v  1 e 1 0 ]
+"179
+[v _LCD_Set_Latin_Char LCD_Set_Latin_Char `(v  1 e 1 0 ]
+"212
+[v _LCD_Initializer LCD_Initializer `(v  1 e 1 0 ]
+"15 C:\Users\LucasGabriel\Desktop\Desafio2_LCD.X\main.c
+[v _main main `(v  1 e 1 0 ]
+"11 C:\Users\LucasGabriel\Desktop\Desafio2_LCD.X\screen.c
+[v _Tela_Menu Tela_Menu `(v  1 e 1 0 ]
+"28
+[v _Tela_Option_1 Tela_Option_1 `(v  1 e 1 0 ]
+"41
+[v _Tela_Option_2 Tela_Option_2 `(v  1 e 1 0 ]
+"54
+[v _Cursor_Select Cursor_Select `(v  1 e 1 0 ]
+"21 C:\Users\LucasGabriel\Desktop\Desafio2_LCD.X\system.c
+[v _System_Initializer System_Initializer `(v  1 e 1 0 ]
+"28
+[v _IO_Initializer IO_Initializer `(v  1 e 1 0 ]
+"53 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f452.h
+[v _PORTA PORTA `VEuc  1 e 1 @3968 ]
+"198
+[v _PORTB PORTB `VEuc  1 e 1 @3969 ]
+[s S41 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"233
+[s S50 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+`uc 1 CCP2 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 PGM 1 0 :1:5 
+`uc 1 PGC 1 0 :1:6 
+`uc 1 PGD 1 0 :1:7 
+]
+[s S59 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2A 1 0 :1:3 
+]
+[s S62 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S65 . 1 `S41 1 . 1 0 `S50 1 . 1 0 `S59 1 . 1 0 `S62 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES65  1 e 1 @3969 ]
+"323
+[v _PORTC PORTC `VEuc  1 e 1 @3970 ]
+"490
+[v _PORTD PORTD `VEuc  1 e 1 @3971 ]
+"723
+[v _LATA LATA `VEuc  1 e 1 @3977 ]
+"823
+[v _LATB LATB `VEuc  1 e 1 @3978 ]
+"935
+[v _LATC LATC `VEuc  1 e 1 @3979 ]
+[s S137 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
+]
+"962
+[s S146 . 1 `uc 1 LC0 1 0 :1:0 
+`uc 1 LC1 1 0 :1:1 
+`uc 1 LC2 1 0 :1:2 
+`uc 1 LC3 1 0 :1:3 
+`uc 1 LC4 1 0 :1:4 
+`uc 1 LC5 1 0 :1:5 
+`uc 1 LC6 1 0 :1:6 
+`uc 1 LC7 1 0 :1:7 
+]
+[u S155 . 1 `S137 1 . 1 0 `S146 1 . 1 0 ]
+[v _LATCbits LATCbits `VES155  1 e 1 @3979 ]
+"1047
+[v _LATD LATD `VEuc  1 e 1 @3980 ]
+[s S177 . 1 `uc 1 LATD0 1 0 :1:0 
+`uc 1 LATD1 1 0 :1:1 
+`uc 1 LATD2 1 0 :1:2 
+`uc 1 LATD3 1 0 :1:3 
+`uc 1 LATD4 1 0 :1:4 
+`uc 1 LATD5 1 0 :1:5 
+`uc 1 LATD6 1 0 :1:6 
+`uc 1 LATD7 1 0 :1:7 
+]
+"1074
+[s S186 . 1 `uc 1 LD0 1 0 :1:0 
+`uc 1 LD1 1 0 :1:1 
+`uc 1 LD2 1 0 :1:2 
+`uc 1 LD3 1 0 :1:3 
+`uc 1 LD4 1 0 :1:4 
+`uc 1 LD5 1 0 :1:5 
+`uc 1 LD6 1 0 :1:6 
+`uc 1 LD7 1 0 :1:7 
+]
+[u S195 . 1 `S177 1 . 1 0 `S186 1 . 1 0 ]
+[v _LATDbits LATDbits `VES195  1 e 1 @3980 ]
+"1211
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"1409
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"1649
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"1889
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"3383
+[v _CCP2CON CCP2CON `VEuc  1 e 1 @4026 ]
+"3492
+[v _CCP1CON CCP1CON `VEuc  1 e 1 @4029 ]
+[s S280 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 NOT_RBPU 1 0 :1:7 
+]
+"5258
+[s S283 . 1 `uc 1 RBIP 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 TMR0IP 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INTEDG2 1 0 :1:4 
+`uc 1 INTEDG1 1 0 :1:5 
+`uc 1 INTEDG0 1 0 :1:6 
+`uc 1 nRBPU 1 0 :1:7 
+]
+[s S292 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T0IP 1 0 :1:2 
+`uc 1 . 1 0 :4:3 
+`uc 1 RBPU 1 0 :1:7 
+]
+[u S297 . 1 `S280 1 . 1 0 `S283 1 . 1 0 `S292 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES297  1 e 1 @4081 ]
+"99 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+[v _prec prec `i  1 s 2 prec ]
+[v _width width `i  1 s 2 width ]
+"100
+[v _flags flags `uc  1 s 1 flags ]
+"15 C:\Users\LucasGabriel\Desktop\Desafio2_LCD.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"24
+[v main@flag_STATE_MENU flag_STATE_MENU `uc  1 a 1 37 ]
+"27
+[v main@flag_ENTER_MENU_state flag_ENTER_MENU_state `uc  1 a 1 36 ]
+"26
+[v main@flag_SELECIONA_MENU_state flag_SELECIONA_MENU_state `uc  1 a 1 35 ]
+"25
+[v main@flag_RETORNA_MENU_state flag_RETORNA_MENU_state `uc  1 a 1 34 ]
+"23
+[v main@flag_RETORNA_MENU flag_RETORNA_MENU `uc  1 a 1 33 ]
+"22
+[v main@flag_ENTER_MENU flag_ENTER_MENU `uc  1 a 1 32 ]
+"21
+[v main@flag_SELECIONA_MENU flag_SELECIONA_MENU `uc  1 a 1 31 ]
+"95
+} 0
+"41 C:\Users\LucasGabriel\Desktop\Desafio2_LCD.X\screen.c
+[v _Tela_Option_2 Tela_Option_2 `(v  1 e 1 0 ]
+{
+"52
+} 0
+"28
+[v _Tela_Option_1 Tela_Option_1 `(v  1 e 1 0 ]
+{
+"39
+} 0
+"11
+[v _Tela_Menu Tela_Menu `(v  1 e 1 0 ]
+{
+"26
+} 0
+"123 C:\Users\LucasGabriel\Desktop\Desafio2_LCD.X\lcd_4bit_Mode.c
+[v _LCD_Clear_Display LCD_Clear_Display `(v  1 e 1 0 ]
+{
+"127
+} 0
+"21 C:\Users\LucasGabriel\Desktop\Desafio2_LCD.X\system.c
+[v _System_Initializer System_Initializer `(v  1 e 1 0 ]
+{
+"26
+} 0
+"212 C:\Users\LucasGabriel\Desktop\Desafio2_LCD.X\lcd_4bit_Mode.c
+[v _LCD_Initializer LCD_Initializer `(v  1 e 1 0 ]
+{
+"246
+} 0
+"28 C:\Users\LucasGabriel\Desktop\Desafio2_LCD.X\system.c
+[v _IO_Initializer IO_Initializer `(v  1 e 1 0 ]
+{
+"54
+} 0
+"179 C:\Users\LucasGabriel\Desktop\Desafio2_LCD.X\lcd_4bit_Mode.c
+[v _LCD_Set_Latin_Char LCD_Set_Latin_Char `(v  1 e 1 0 ]
+{
+"201
+[v LCD_Set_Latin_Char@a_agudo a_agudo `[8]uc  1 a 8 22 ]
+"191
+[v LCD_Set_Latin_Char@a_til a_til `[8]uc  1 a 8 14 ]
+"181
+[v LCD_Set_Latin_Char@c_cedilha c_cedilha `[8]uc  1 a 8 6 ]
+"180
+[v LCD_Set_Latin_Char@F2508 F2508 `[8]uc  1 s 8 F2508 ]
+"189
+[v LCD_Set_Latin_Char@F2510 F2510 `[8]uc  1 s 8 F2510 ]
+"199
+[v LCD_Set_Latin_Char@F2512 F2512 `[8]uc  1 s 8 F2512 ]
+"210
+} 0
+"169
+[v _LCD_Set_New_Simbol LCD_Set_New_Simbol `(v  1 e 1 0 ]
+{
+"173
+[v LCD_Set_New_Simbol@i i `uc  1 a 1 5 ]
+"169
+[v LCD_Set_New_Simbol@simbol simbol `*.39uc  1 p 2 2 ]
+[v LCD_Set_New_Simbol@simbol_address simbol_address `uc  1 p 1 4 ]
+"177
+} 0
+"54 C:\Users\LucasGabriel\Desktop\Desafio2_LCD.X\screen.c
+[v _Cursor_Select Cursor_Select `(v  1 e 1 0 ]
+{
+[v Cursor_Select@line line `uc  1 a 1 wreg ]
+[v Cursor_Select@line line `uc  1 a 1 wreg ]
+"56
+[v Cursor_Select@state state `uc  1 s 1 state ]
+"58
+[v Cursor_Select@line line `uc  1 a 1 29 ]
+"69
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\printf.c
+[v _printf printf `(i  1 e 2 0 ]
+{
+"8
+[v printf@ap ap `[1]*.39v  1 a 2 27 ]
+"5
+[v printf@fmt fmt `*.25Cuc  1 p 2 25 ]
+"13
+} 0
+"1520 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+{
+"1523
+[v vfprintf@cfmt cfmt `*.25uc  1 a 2 23 ]
+[s S817 _IO_FILE 0 ]
+"1520
+[v vfprintf@fp fp `*.2S817  1 p 2 17 ]
+[v vfprintf@fmt fmt `*.25Cuc  1 p 2 19 ]
+[v vfprintf@ap ap `*.39*.39v  1 p 2 21 ]
+"1543
+} 0
+"1007
+[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
+{
+[s S817 _IO_FILE 0 ]
+[v vfpfcnvrt@fp fp `*.2S817  1 p 2 11 ]
+[v vfpfcnvrt@fmt fmt `*.39*.25uc  1 p 2 13 ]
+[v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 15 ]
+"1517
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+{
+[v fputc@c c `i  1 p 2 2 ]
+[u S795 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S798 _IO_FILE 11 `S795 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.2S798  1 p 2 4 ]
+"24
+} 0
+"135 C:\Users\LucasGabriel\Desktop\Desafio2_LCD.X\lcd_4bit_Mode.c
+[v _putch putch `(v  1 e 1 0 ]
+{
+[v putch@data data `uc  1 a 1 wreg ]
+[v putch@data data `uc  1 a 1 wreg ]
+"137
+[v putch@data data `uc  1 a 1 1 ]
+"152
+} 0
+"101
+[v _LCD_Move_Cursor LCD_Move_Cursor `(v  1 e 1 0 ]
+{
+[v LCD_Move_Cursor@line line `uc  1 a 1 wreg ]
+[v LCD_Move_Cursor@line line `uc  1 a 1 wreg ]
+[v LCD_Move_Cursor@column column `uc  1 p 1 2 ]
+"103
+[v LCD_Move_Cursor@line line `uc  1 a 1 5 ]
+"121
+} 0
+"82
+[v _LCD_Instruction LCD_Instruction `(v  1 e 1 0 ]
+{
+[v LCD_Instruction@instruction instruction `uc  1 a 1 wreg ]
+[v LCD_Instruction@instruction instruction `uc  1 a 1 wreg ]
+"84
+[v LCD_Instruction@instruction instruction `uc  1 a 1 1 ]
+"99
+} 0
