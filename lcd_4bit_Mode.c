@@ -6,8 +6,7 @@
  */
 
 #include "lcd_4bit_Mode.h"
-#include "system_config.h"
-#include "device_config.h"
+#include "../../system_config.h"
 
 /******************************************************************************/
 /*                             Display Defines                                */
@@ -147,21 +146,6 @@ void putch(char data)
     data <<= 4;
     LCDSetPort(data);
     
-    EN = 0;
-    __delay_us(45);      
-}
-
-void LCD_Write_Char(char data)
-{
-    RS = 1;   
-    EN = 1;
-    LCDSetPort(data);
-    EN = 0;
-    __delay_us(45);
-
-    EN = 1;
-    data <<= 4;
-    LCDSetPort(data);
     EN = 0;
     __delay_us(45);      
 }

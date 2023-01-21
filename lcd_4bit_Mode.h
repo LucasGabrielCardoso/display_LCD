@@ -40,7 +40,6 @@
     void LCD_Initializer(void);
     void LCD_Instruction(unsigned char instruction);
     void putch(char data);
-    void LCD_Write_Char(char data);
     void LCD_Move_Cursor(unsigned char line, unsigned char column);
     void LCD_Set_New_Simbol(unsigned char *simbol, unsigned char simbol_address);
     void LCD_Set_Latin_Char(void);
