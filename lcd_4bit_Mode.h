@@ -34,6 +34,11 @@
     #define C_CEDILHA               0
     #define A_TIL                   1
     #define A_AGUDO                 2
+    #define A_CIRCUNFLEXO           3
+    #define E_AGUDO                 4
+    #define E_CIRCUNFLEXO           5
+    #define O_AGUDO                 6
+    #define O_CIRCUNFLEXO           7
     
     #include <stdio.h>
     

@@ -162,35 +162,85 @@ void LCD_Set_New_Simbol(unsigned char *simbol, unsigned char simbol_address)
 
 void LCD_Set_Latin_Char(void)
 {
-    uint8_t c_cedilha[8] = {0b00000000,
-                            0b00000000,
-                            0b00001110,
-                            0b00010000,
-                            0b00010001,
-                            0b00001110,
-                            0b00000100,
-                            0b00001100}; 
+    uint8_t c_cedilha[8] =     {0b00000000,
+                                0b00000000,
+                                0b00001110,
+                                0b00010000,
+                                0b00010001,
+                                0b00001110,
+                                0b00000100,
+                                0b00001100}; 
     LCD_Set_New_Simbol(c_cedilha,0);
 
-    uint8_t a_til[8]    =  {0b00001101,
-                            0b00010010,
-                            0b00000000,
-                            0b00001110,
-                            0b00000001,
-                            0b00001111,
-                            0b00010001,
-                            0b00011111};
+    uint8_t a_til[8]    =      {0b00001101,
+                                0b00010010,
+                                0b00000000,
+                                0b00001110,
+                                0b00000001,
+                                0b00001111,
+                                0b00010001,
+                                0b00011111};
     LCD_Set_New_Simbol(a_til,8);
     
-    uint8_t a_agudo[8]  =  {0b00000010,
-                            0b00000100,
-                            0b00000000,
-                            0b00001110,
-                            0b00000001,
-                            0b00001111,
-                            0b00010001,
-                            0b00011111};
+    uint8_t a_agudo[8]  =      {0b00000010,
+                                0b00000100,
+                                0b00000000,
+                                0b00001110,
+                                0b00000001,
+                                0b00001111,
+                                0b00010001,
+                                0b00011111};
     LCD_Set_New_Simbol(a_agudo,16);
+    
+    uint8_t a_circunflexo[8] =  {0b00000100,
+                                 0b00001010,
+                                 0b00000000,
+                                 0b00001110,
+                                 0b00000001,
+                                 0b00001111,
+                                 0b00010001,
+                                 0b00011111};
+    LCD_Set_New_Simbol(a_circunflexo,24);
+    
+    uint8_t e_agudo[8]  =      {0b00000010,
+                                0b00000100,
+                                0b00000000,
+                                0b00001110,
+                                0b00010001,
+                                0b00011111,
+                                0b00010000,
+                                0b00001110};
+    LCD_Set_New_Simbol(e_agudo,32);
+ 
+    uint8_t e_circunflexo[8] = {0b00000100,
+                                0b00001010,
+                                0b00000000,
+                                0b00001110,
+                                0b00010001,
+                                0b00011111,
+                                0b00010000,
+                                0b00001110};
+    LCD_Set_New_Simbol(e_circunflexo,40);    
+
+    uint8_t o_agudo[8]  =      {0b00000010,
+                                0b00000100,
+                                0b00000000,
+                                0b00001110,
+                                0b00010001,
+                                0b00010001,
+                                0b00010001,
+                                0b00001110};
+    LCD_Set_New_Simbol(o_agudo,48);
+   
+    uint8_t o_circunflexo[8] = {0b00000100,
+                                0b00001010,
+                                0b00000000,
+                                0b00001110,
+                                0b00010001,
+                                0b00010001,
+                                0b00010001,
+                                0b00001110};
+    LCD_Set_New_Simbol(o_circunflexo,56);
 }
 
 void LCD_Initializer()
