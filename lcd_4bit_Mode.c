@@ -6,7 +6,7 @@
  */
 
 #include "lcd_4bit_Mode.h"
-#include "../../system_config.h"
+#include "../../main/system_config.h"
 
 /******************************************************************************/
 /*                             Display Defines                                */
@@ -49,6 +49,18 @@
                                        D6 = (0x40==(instruction&0x40));\
                                        D5 = (0x20==(instruction&0x20));\
                                        D4 = (0x10==(instruction&0x10));}while(0)
+
+#define LCDInstruction(instruction) do{RS = 0;\
+                                       EN = 1;\
+                                       LCDSetPort(instruction);\
+                                       EN = 0;\
+                                       __delay_us(45);\
+                                       EN = 1;\
+                                       uint16_t instruction_low = instruction;\
+                                       instruction_low <<= 4;\
+                                       LCDSetPort(instruction_low);\
+                                       EN = 0;\
+                                       __delay_us(45);}while(0)
 
 /******************************************************************************/
 /*                        Display Ports Definitions                           */
@@ -103,16 +115,16 @@ void LCD_Move_Cursor(unsigned char line, unsigned char column)
     switch(line)
     {
         case 1:
-            LCD_Instruction(0x80+column-1);
+            LCDInstruction(0x80+column-1);
             break;
         case 2:
-            LCD_Instruction(0xC0+column-1);
+            LCDInstruction(0xC0+column-1);
             break;
         case 3:
-            LCD_Instruction(0x94+column-1);
+            LCDInstruction(0x94+column-1);
             break;
         case 4:
-            LCD_Instruction(0xD4+column-1);
+            LCDInstruction(0xD4+column-1);
             break;
         default:
             break;
@@ -121,13 +133,13 @@ void LCD_Move_Cursor(unsigned char line, unsigned char column)
 
 void LCD_Clear_Display(void)
 {
-    LCD_Instruction(CLEAR_DISPLAY);
+    LCDInstruction(CLEAR_DISPLAY);
     __delay_ms(2);    
 }
 
 void LCD_Return_Home(void)
 {
-    LCD_Instruction(RETURN_HOME);
+    LCDInstruction(RETURN_HOME);
     __delay_ms(2);    
 }
 
@@ -152,12 +164,12 @@ void putch(char data)
 
 void LCD_Set_New_Simbol(unsigned char *simbol, unsigned char simbol_address)
 {
-    LCD_Instruction(SET_CGRAM_ADDRESS|simbol_address);
+    LCDInstruction(SET_CGRAM_ADDRESS|simbol_address);
     
     for(unsigned char i=0; 8>i; i++)
         putch(*(simbol++));
     
-    LCD_Instruction(SET_DDRAM_ADDRESS);
+    LCDInstruction(SET_DDRAM_ADDRESS);
 }
 
 void LCD_Set_Latin_Char(void)
@@ -272,9 +284,9 @@ void LCD_Initializer()
     EN = 0;
     __delay_us(45);        
     
-    LCD_Instruction(DATA_4_BIT_MODE|TWO_LINE_DISPLAY);
-    LCD_Instruction(DISPLAY_ON);
-    LCD_Instruction(CLEAR_DISPLAY);
+    LCDInstruction(DATA_4_BIT_MODE|TWO_LINE_DISPLAY);
+    LCDInstruction(DISPLAY_ON);
+    LCDInstruction(CLEAR_DISPLAY);
     __delay_ms(2);
-    LCD_Instruction(MOVE_FOWARD);
+    LCDInstruction(MOVE_FOWARD);
 }
