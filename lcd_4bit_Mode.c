@@ -50,16 +50,16 @@
                                        D5 = (0x20==(instruction&0x20));\
                                        D4 = (0x10==(instruction&0x10));}while(0)
 
-#define LCDInstruction(instruction) do{RS = 0;\
-                                       EN = 1;\
+#define LCDInstruction(instruction) do{_RS = 0;\
+                                       _EN = 1;\
                                        LCDSetPort(instruction);\
-                                       EN = 0;\
+                                       _EN = 0;\
                                        __delay_us(45);\
-                                       EN = 1;\
+                                       _EN = 1;\
                                        uint16_t instruction_low = instruction;\
                                        instruction_low <<= 4;\
                                        LCDSetPort(instruction_low);\
-                                       EN = 0;\
+                                       _EN = 0;\
                                        __delay_us(45);}while(0)
 
 /******************************************************************************/
@@ -69,8 +69,8 @@
 //#define D6                 ///////////////////////////////////////////
 //#define D5                 //BEFORE USE THIS LIBRARY IS NECESSARY ////
 //#define D4                 //TO MEKE DISPLAY PORT DEFINIES        ////
-//#define EN                 ///////////////////////////////////////////
-//#define RS
+//#define _EN                 ///////////////////////////////////////////
+//#define _RS
 
 /******************************************************************************/
 /*                       Display internal Functions                            */
@@ -92,20 +92,20 @@ void LCD_Set_Port(unsigned char instruction)
 
 void LCD_Instruction(unsigned char instruction)
 {
-    RS = 0;
-    EN = 1;
+    _RS = 0;
+    _EN = 1;
    
     LCDSetPort(instruction);
     
-    EN = 0;
+    _EN = 0;
     __delay_us(45);
     
-    EN = 1;
+    _EN = 1;
     
     instruction <<= 4;
     LCDSetPort(instruction);
     
-    EN = 0;
+    _EN = 0;
     __delay_us(45);
 }
 
@@ -145,20 +145,20 @@ void LCD_Return_Home(void)
 
 void putch(char data)
 {
-    RS = 1;   
-    EN = 1;
+    _RS = 1;   
+    _EN = 1;
     
     LCDSetPort(data);
 
-    EN = 0;
+    _EN = 0;
     __delay_us(45);
 
-    EN = 1;
+    _EN = 1;
     
     data <<= 4;
     LCDSetPort(data);
     
-    EN = 0;
+    _EN = 0;
     __delay_us(45);      
 }
 
@@ -166,122 +166,115 @@ void LCD_Set_New_Simbol(unsigned char *simbol, unsigned char simbol_address)
 {
     LCDInstruction(SET_CGRAM_ADDRESS|simbol_address);
     
-    for(unsigned char i=0; 8>i; i++)
-        putch(*(simbol++));
+    for(unsigned char i=0; 64>i; i++)
+        putch(*simbol++);
     
     LCDInstruction(SET_DDRAM_ADDRESS);
 }
 
 void LCD_Set_Latin_Char(void)
-{
-    uint8_t c_cedilha[8] =     {0b00000000,
+{                              //C_CEDILHA
+    uint8_t latin_char[64] =   {0b00000000,
                                 0b00000000,
                                 0b00001110,
                                 0b00010000,
                                 0b00010001,
                                 0b00001110,
                                 0b00000100,
-                                0b00001100}; 
-    LCD_Set_New_Simbol(c_cedilha,0);
-
-    uint8_t a_til[8]    =      {0b00001101,
+                                0b00001100,
+                                //A_TIL
+                                0b00001101,
                                 0b00010010,
-                                0b00000000,
                                 0b00001110,
                                 0b00000001,
                                 0b00001111,
                                 0b00010001,
-                                0b00011111};
-    LCD_Set_New_Simbol(a_til,8);
-    
-    uint8_t a_agudo[8]  =      {0b00000010,
-                                0b00000100,
+                                0b00011111,
                                 0b00000000,
+                                //A_AGUDO    
+                                0b00000010,
+                                0b00000100,
                                 0b00001110,
                                 0b00000001,
                                 0b00001111,
                                 0b00010001,
-                                0b00011111};
-    LCD_Set_New_Simbol(a_agudo,16);
-    
-    uint8_t a_circunflexo[8] =  {0b00000100,
-                                 0b00001010,
-                                 0b00000000,
-                                 0b00001110,
-                                 0b00000001,
-                                 0b00001111,
-                                 0b00010001,
-                                 0b00011111};
-    LCD_Set_New_Simbol(a_circunflexo,24);
-    
-    uint8_t e_agudo[8]  =      {0b00000010,
-                                0b00000100,
+                                0b00011111,
                                 0b00000000,
+                                //A_CIRCUNFLEXO
+                                0b00000100,
+                                0b00001010,
+                                0b00001110,
+                                0b00000001,
+                                0b00001111,
+                                0b00010001,
+                                0b00011111,
+                                0b00000000,
+                                //E_AGUDO
+                                0b00000010,
+                                0b00000100,
                                 0b00001110,
                                 0b00010001,
                                 0b00011111,
                                 0b00010000,
-                                0b00001110};
-    LCD_Set_New_Simbol(e_agudo,32);
- 
-    uint8_t e_circunflexo[8] = {0b00000100,
-                                0b00001010,
+                                0b00001110,
                                 0b00000000,
+                                //E_CIRCUNFLEXO
+                                0b00000100,
+                                0b00001010,
                                 0b00001110,
                                 0b00010001,
                                 0b00011111,
                                 0b00010000,
-                                0b00001110};
-    LCD_Set_New_Simbol(e_circunflexo,40);    
-
-    uint8_t o_agudo[8]  =      {0b00000010,
+                                0b00001110,
+                                0b00000000,
+                                //O_AGUDO
+                                0b00000010,
                                 0b00000100,
-                                0b00000000,
                                 0b00001110,
                                 0b00010001,
                                 0b00010001,
                                 0b00010001,
-                                0b00001110};
-    LCD_Set_New_Simbol(o_agudo,48);
-   
-    uint8_t o_circunflexo[8] = {0b00000100,
+                                0b00001110,
+                                0b00000000,
+                                //O_CIRCUNFLEXO
+                                0b00000100,
                                 0b00001010,
-                                0b00000000,
                                 0b00001110,
                                 0b00010001,
                                 0b00010001,
                                 0b00010001,
-                                0b00001110};
-    LCD_Set_New_Simbol(o_circunflexo,56);
+                                0b00001110,
+                                0b00000000};
+    LCD_Set_New_Simbol(latin_char,0);
 }
 
 void LCD_Initializer()
 {    
     __delay_ms(40);
-    RS = 0;
+    _RS = 0;
     
-    EN = 1;
+    _EN = 1;
     LCDSetPort(DATA_8_BIT_MODE);
-    EN = 0;
+    _EN = 0;
     __delay_us(45);
     
     __delay_ms(5);
     
-    EN = 1;
+    _EN = 1;
     LCDSetPort(DATA_8_BIT_MODE);
-    EN = 0;
+    _EN = 0;
     __delay_us(45);
     
     __delay_us(500);
     
-    EN = 1;
+    _EN = 1;
     LCDSetPort(DATA_8_BIT_MODE);
-    EN = 0;
+    _EN = 0;
     __delay_us(45); 
 
-    EN = 1;    
+    _EN = 1;    
     LCDSetPort(DATA_4_BIT_MODE);
-    EN = 0;
+    _EN = 0;
     __delay_us(45);        
     
     LCDInstruction(DATA_4_BIT_MODE|TWO_LINE_DISPLAY);
