@@ -250,7 +250,7 @@ void LCD_Set_Latin_Char(void)
 
 void LCD_Initializer()
 {    
-    __delay_ms(40);
+    __delay_ms(50);
     _RS = 0;
     
     _EN = 1;
